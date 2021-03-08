@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 //import routes
-const booksRoute = require('./routes/books');
+const studentsRoute = require('./routes/students');
 
 //database connection
 
@@ -21,12 +21,10 @@ mongoose
 	})
 	.catch((err) => console.log(err));
 
-//Middlewares(functions that are executed when a specific route is hit)
-
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/books', booksRoute);
+app.use('/', studentsRoute);
 
 app.get('/', (req, res) => {
 	res.send('This is Home Route');
